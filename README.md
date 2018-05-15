@@ -1,7 +1,8 @@
 # poolcamera
 
 ## What
-An IoT project including a NUC, Python scripting, a webcam, an Arduino and 3D printing
+An IoT project including a NUC, Python scripting, a webcam, an Arduino and 3D printing.
+You press the button, and magically a video of the last 30 seconds is uploaded to YouTube for your viewing pleasures.
 
 
 ## To install
