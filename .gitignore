@@ -1,0 +1,6 @@
+*.avi
+*.mp4
+*.tgz
+*.pyc
+venv/
+*.log
