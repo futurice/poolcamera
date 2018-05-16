@@ -61,7 +61,7 @@ This needs to be only done once, the upload should work automatically after that
 - [Henri Holopainen](https://github.com/henriholopainen)
 - [Olli Niskanen](https://github.com/Klipi)
 - [Joonas Nissinen](https://github.com/jnissin)
-- [Kenta Kusumoto](htps://github.com/kenkus-futurice)
+- [Kenta Kusumoto](https://github.com/kenkus-futurice)
 - [Niclas Forsman](https://github.com/NforceMan)
 - [Mathias Nørregaard](https://github.com/mathiassiig)
 - [Wilfried Bock](https://github.com/wbock)
