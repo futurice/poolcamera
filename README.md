@@ -51,3 +51,17 @@ To configure OAuth:
 3) Copy paste the authentication code back to the script
 
 This needs to be only done once, the upload should work automatically after that.
+
+## Contributors
+
+Mika Laitinen
+[Olli Jarva](https://github.com/ojarva)
+[Aki Kolehmainen](https://github.com/akikolehmainen)
+Mats Malmsten
+[Henri Holopainen](https://github.com/henriholopainen)
+[Olli Niskanen](https://github.com/Klipi)
+[Joonas Nissinen](https://github.com/jnissin)
+[Kenta Kusumoto](htps://github.com/kenkus-futurice)
+[Niclas Forsman](https://github.com/NforceMan)
+[Mathias Nørregaard](https://github.com/mathiassiig)
+[Wilfried Bock](https://github.com/wbock)
