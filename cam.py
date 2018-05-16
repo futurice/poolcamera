@@ -13,17 +13,16 @@ import atexit
 from playsound import playsound
 
 list = deque()
-secondsDesired = 30
-frameLimit = 60 * secondsDesired
-cameraIndex = int(glob.glob('/dev/video*')[0][-1:])  # fetch the latest camera
+secondsDesired = 30 # amount of seconds to upload 
+frameLimit = 60 * secondsDesired # cannot exceed more than 60 FPS for 30 seconds
+cameraIndex = int(glob.glob('/dev/video*')[0][-1:])  # fetch the latest camera, whatever last number it has in the device
 
 threadLock = threading.Lock()
 
 
 class captureThread(threading.Thread):
     stop = False
-    startingTime = 0
-    framesSeen = 0
+    startingTime = 0 
 
     def __init__(self, threadID, name, counter):
 
@@ -43,7 +42,6 @@ class captureThread(threading.Thread):
         #cv2.startWindowThread()             # uncomment these lines if you want to see a preview of the webcam feed.
         #window = cv2.namedWindow("preview") # if you do uncomment these lines, the program cannot be executed as a service anymore
         vc = cv2.VideoCapture(cameraIndex)
-        lastAcceptedTime = 0
         print vc
         try:
             if vc.isOpened():  # try to get the first frame
@@ -59,7 +57,6 @@ class captureThread(threading.Thread):
             t2.stop = True
             return
 
-        self.framesSeen = 1
 
         print self.width, self.height
 
@@ -72,10 +69,9 @@ class captureThread(threading.Thread):
                 list.append(frame)
                 if len(list) > frameLimit:
                     list.popleft()
-                self.framesSeen = self.framesSeen + 1
                 #cv2.imshow("preview", frame) # uncomment this line, and line 42 and 43, if you want the preview of the webcam feed to be updated
                 k = cv2.waitKey(1)
-                if k % 256 == 27:
+                if k % 256 == 27: # escape character to cancel running threads
                     vc.release()
                     t2.stop = True
                     break
@@ -83,7 +79,6 @@ class captureThread(threading.Thread):
 
     def saveCaptured(self):
         threadLock.acquire()
-        suggestedPressTime = time.time()
 
         endingTime = time.time()
         # generate the actual image here
@@ -134,10 +129,12 @@ class inputThread(threading.Thread):
     def inputLoop(self):
         while not self.shutdown_flag.is_set():
             try:
-                ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)  # make sure the arduino is running the same baud rate
+                baudRate = 9600 # make sure the arduino is running the same baud rate
+                arduinoDeviceLocation = '/dev/ttyACM0' # make sure your arduino is at this device
+                ser = serial.Serial(arduinoDeviceLocation, baudRate, timeout=1)  # timeout after 1 second
                 input_line = ser.readline()
                 ser.flushInput()
-                if input_line.strip() == 'a':
+                if input_line.strip() == 'a': # make sure the arduino is sending the same character
                     playsound('button_press.wav')
                     print "Capturing"
                     t1.saveCaptured()
