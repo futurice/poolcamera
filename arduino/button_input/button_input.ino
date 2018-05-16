@@ -9,10 +9,10 @@ bool lastState = false;
 bool timerActive = false;
 
 unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 42;
+unsigned long debounceDelay = 42; //buffer time to prevent false readings
 
 unsigned long lastPressTime = 0;
-unsigned long pressDelay = 1952;
+unsigned long pressDelay = 1952; //How many millis before sending the signal
 
 void setup() {
   pinMode(BUTTON, INPUT_PULLUP);
@@ -42,7 +42,7 @@ void loop() {
   }
 
   if(timerActive && (millis() - lastPressTime) > pressDelay) {
-    Serial.println('a');
+    Serial.println('a'); //We send an a, because reasons.
     timerActive = false;
   }
 
