@@ -30,6 +30,9 @@ There's a bunch of hardware in this project, so let's get down to business
 - Get a webcam or other USB camera, plug it into the NUC
 
 ## To run
+
+This project uses python 2.7
+
 $ source venv/bin/activate
 $ python cam.py
 
