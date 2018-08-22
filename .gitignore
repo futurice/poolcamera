@@ -4,3 +4,6 @@
 *.pyc
 venv/
 *.log
+*.vs
+*.pyproj
+*.sln
