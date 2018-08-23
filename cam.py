@@ -1,4 +1,5 @@
 import cv2
+import numpy
 import os
 import sys
 import copy
@@ -15,7 +16,10 @@ from playsound import playsound
 list = deque()
 secondsDesired = 30 # amount of seconds to upload 
 frameLimit = 60 * secondsDesired # cannot exceed more than 60 FPS for 30 seconds
-cameraIndex = int(glob.glob('/dev/video*')[0][-1:])  # fetch the latest camera, whatever last number it has in the device
+videoDevices = glob.glob('/dev/video*')
+print "Available video devices: ", videoDevices
+cameraIndex = int(videoDevices[0][-1:])  # fetch the latest camera, whatever last number it has in the device
+print "Using video device index ", cameraIndex
 
 threadLock = threading.Lock()
 
@@ -48,6 +52,7 @@ class captureThread(threading.Thread):
                 cameraWorking, frame = vc.read()
             else:
                 cameraWorking = False
+                frame = numpy.zeros((1, 1, 3), numpy.uint8)
             self.width = len(frame[0])
             self.height = len(frame)
 
