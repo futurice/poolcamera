@@ -1,0 +1,1 @@
+youtube-upload --title=$2 --description="" --category=Sports $1 --client-secrets=CLIENT_SECRETS.json
