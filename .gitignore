@@ -1,3 +1,4 @@
+CLIENT_SECRETS.json
 *.avi
 *.mp4
 *.tgz
@@ -5,5 +6,6 @@
 venv/
 *.log
 *.vs
+*.vscode
 *.pyproj
 *.sln
