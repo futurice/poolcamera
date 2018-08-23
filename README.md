@@ -65,3 +65,4 @@ This needs to be only done once, the upload should work automatically after that
 - [Niclas Forsman](https://github.com/NforceMan)
 - [Mathias Nørregaard](https://github.com/mathiassiig)
 - [Wilfried Bock](https://github.com/wbock)
+- [Nestor Köhler] (https://github.com/nkohler)
