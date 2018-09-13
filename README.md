@@ -7,6 +7,7 @@ You press the button, and magically a video of the last 30 seconds is uploaded t
 
 ## To install
 $ virtualenv venv
+
 $ pip install -r requirements.txt
 
 ## Setting up the hardware
@@ -34,6 +35,7 @@ There's a bunch of hardware in this project, so let's get down to business
 This project uses python 2.7
 
 $ source venv/bin/activate
+
 $ python cam.py
 
 Youtube-Upload script for API v3: https://github.com/tokland/youtube-upload
@@ -41,6 +43,9 @@ We're using a modified version to skip the command line calling.
 Source is included under youtube-upload/
 
 ## Configuring
+
+Before setting up credentials as described below, go through the "Setup" section in https://github.com/tokland/youtube-upload to setup and download the client secret.
+Name the secrets file CLIENT_SECRETS.json and place it in the application's root directory.
 
 https://console.developers.google.com
 

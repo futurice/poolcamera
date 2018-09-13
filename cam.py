@@ -43,9 +43,16 @@ class captureThread(threading.Thread):
 
     def captureLoop(self):
         self.startingTime = time.time()
-        cv2.startWindowThread()             # uncomment these lines if you want to see a preview of the webcam feed.
-        window = cv2.namedWindow("preview") # if you do uncomment these lines, the program cannot be executed as a service anymore
-        vc = cv2.VideoCapture(cameraIndex)
+        #cv2.startWindowThread()             # uncomment these lines if you want to see a preview of the webcam feed.
+        #window = cv2.namedWindow("preview") # if you do uncomment these lines, the program cannot be executed as a service anymore
+        try:
+            vc = cv2.VideoCapture(cameraIndex)
+
+        except Exception as e:
+            print "Capture Thread -- Exception! {0} ".format(e)
+            print "Capture Thread -- Failed to start video capture."
+            t2.stop = True
+            return
         #print vc
         try:
             if vc.isOpened():  # try to get the first frame
@@ -76,7 +83,7 @@ class captureThread(threading.Thread):
                 if len(list) > frameLimit:
                     list.popleft()
                 self.framesSeen = self.framesSeen + 1
-                cv2.imshow("preview", frame) # uncomment this line, and line 42 and 43, if you want the preview of the webcam feed to be updated
+                #cv2.imshow("preview", frame) # uncomment this line, and line 42 and 43, if you want the preview of the webcam feed to be updated
                 k = cv2.waitKey(1)
                 if k % 256 == 27: # escape character to cancel running threads
                     vc.release()
