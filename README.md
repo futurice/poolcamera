@@ -8,6 +8,8 @@ You press the button, and magically a video of the last 30 seconds is uploaded t
 ## To install
 $ virtualenv venv
 
+$ source venv/bin/activate
+
 $ pip install -r requirements.txt
 
 ## Setting up the hardware
