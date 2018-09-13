@@ -29,3 +29,6 @@ socketIO-client==0.6.5
 uritemplate==0.6
 websocket-client==0.35.0
 wsgiref==0.1.2
+playsound
+vext
+vext.gi
