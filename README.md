@@ -59,6 +59,14 @@ To configure OAuth:
 
 This needs to be only done once, the upload should work automatically after that.
 
+## Troubleshooting
+
+If you encounter an error telling you the module 'gi' can't be found, it might be possible that pip has placed the gi.vext file in the venv root directory. In that case, create the following hierarchy:
+
+venv_root/share/vext/specs/
+
+and place the gi.vext file in the specs folder.
+
 ## Contributors
 
 - Mika Laitinen
